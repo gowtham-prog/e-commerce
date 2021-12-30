@@ -6,7 +6,9 @@
     {% for auction in auctions %}
       <div style= "height:550px; width: 475px ;border:10px 10px 10px 10px solid #dcdcdc 30px; outline:none;float:left" >
           <h3> {{auction.Title}}</h3>
-          <img src="{{auction.ImageURL}}" alt="{{auction.Title}}" width="350px" height="350px">
+          {% if auction.ImageURL %}
+          <img src="{{ auction.ImageURL.url }}" alt="{{auction.Title}}" width="350px" height="350px">
+         {% endif %}
          {{auction.description}} 
           <div>
           <ul style="list-style-type:none;">

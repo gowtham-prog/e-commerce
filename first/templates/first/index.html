@@ -14,10 +14,13 @@
         <h4>Products</h4>
         {% for product in p %}
         <div style= "height:550px; width: 475px ;border:10px 10px 10px 10px solid #dcdcdc; outline:none; float:left" >
-           <img src= "{{product.Image}}" alt="{{product.Title}}">
-           {{product.description}} 
-           <h5>{{product.Title}}</h5>
-        <div>
+            <h5>{{product.Title}}</h5>
+             {{product.Description}} 
+             {% if product.Image %}
+             <img src="{{ product.Image.url }}" alt="{{product.Title}}" width="350px" height="350px">
+            {% endif %}
+        </div>         
+    
         <ul>
             <li> <a href= "fshow/{{product.id}}" style = "margin-left:5px; margin-right:5px"> View Here</a></li>
             <li> <a href="/addtocart/{{product.id}}" style = "margin-left:5px; margin-right:5px">Add to cart</a></li>

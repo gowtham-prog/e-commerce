@@ -14,7 +14,7 @@ class Category(models.Model):
 class Auctions(models.Model):
     Title=models.CharField(max_length=64)
     Description= models.CharField(max_length= 1000)
-    ImageURL=models.URLField(blank= True)
+    ImageURL=models.ImageField(null=True,blank= True)
     Startingbid=models.IntegerField(null = True)
     Currentbid= models.IntegerField(null = True,blank=True)
     Creator=models.ForeignKey(User,on_delete=models.CASCADE,related_name="auctions")

@@ -6,7 +6,7 @@ from django.core.validators import URLValidator
 # class EUser(AbstractUser):
 #     pass
 class Products(models.Model):
-    Image=models.URLField(validators=[URLValidator()])
+    Image=models.ImageField(null=True,blank =True)
     Title=models.CharField(max_length=64)
     Description=models.CharField(max_length=50)
     
