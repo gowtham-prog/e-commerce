@@ -1,0 +1,17 @@
+{% extends "first/layout.html" %}
+{%load static%}
+{% block body %}
+wishlist
+  
+    
+    {% for auction in products%}
+      <div >
+           <h3> {{auction.Title}}</h3>
+           <div > {{auction.description}}</div>
+           <img src="{{auction.ImageURL}}" alt="{{auction.Title}}" width="500px" height="500px">
+          <a href= "/{{auction.id}}"> Full here </a>
+     </div>
+    {%endfor%}</br>
+
+
+{% endblock %}

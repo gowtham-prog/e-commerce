@@ -1,0 +1,34 @@
+{% extends "first/layout.html" %}
+
+{% load static %}
+
+{% block header %}
+    <h3>Welcome To This Site</h3>
+{% endblock %}
+
+{% block body %}
+{% if wishlist %}
+<h1> Your Wishlist</h1>
+{% endif %}
+    <div style="margin-left:50px;font-family:sans-serif">
+        <h4>Products</h4>
+        {% for product in p %}
+        <div style= "height:550px; width: 475px ;border:10px 10px 10px 10px solid #dcdcdc; outline:none; float:left" >
+           <img src= "{{product.Image}}" alt="{{product.Title}}">
+           {{product.description}} 
+           <h5>{{product.Title}}</h5>
+        <div>
+        <ul>
+            <li> <a href= "fshow/{{product.id}}" style = "margin-left:5px; margin-right:5px"> View Here</a></li>
+            <li> <a href="/addtocart/{{product.id}}" style = "margin-left:5px; margin-right:5px">Add to cart</a></li>
+            <li> <a href= "/comment/{{product.id}}" style = "margin-left:5px; margin-right:5px">Comment Here</a></li>
+            <li> <a href= "/rating/{{product.id}}" style = "margin-left:5px; margin-right:5px">Rate Here</a></li>
+            {% if wishlist %}
+                <li> <a href= "/remove/{{product.id}}" style = "margin-left:5px; margin-right:5px"> Remove from wishlist </a>
+             {% else%}
+                <li> <a href= "/wishlist/{{product.id}}" style = "margin-left:5px; margin-right:5px"> Add to Wishlist </a> 
+             {% endif%}
+        </ul>
+        {% endfor %}
+{% endblock %}
+
